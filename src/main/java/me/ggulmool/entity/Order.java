@@ -25,7 +25,7 @@ public class Order {
     @Embedded
     private Address address;
 
-    protected Order() {
+    public Order() {
     }
 
     public Order(Integer orderAmount, Address address) {

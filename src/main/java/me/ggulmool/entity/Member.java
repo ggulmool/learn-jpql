@@ -5,6 +5,10 @@ import java.util.List;
 
 @Entity
 @Table(name = "MEMBER")
+@NamedQueries({
+        @NamedQuery(name = "Member.findByUsername", query = "select m from Member m where m.username = :username"),
+        @NamedQuery(name = "Member.count", query = "select count(m) from Member m")
+})
 public class Member {
 
     @Id
@@ -21,7 +25,7 @@ public class Member {
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<Order> orders;
 
-    protected Member() {
+    public Member() {
     }
 
     public Member(Integer age, String username) {
@@ -32,6 +36,10 @@ public class Member {
     public void setTeam(Team team) {
         this.team = team;
         team.getMembers().add(this);
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getId() {

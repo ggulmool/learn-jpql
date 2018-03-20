@@ -15,7 +15,7 @@ public class Product {
     @Column(name = "STOCKAMOUNT")
     private Integer stockAmount;
 
-    protected Product() {
+    public Product() {
     }
 
     public Product(String name, Integer price, Integer stockAmount) {
